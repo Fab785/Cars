@@ -63,6 +63,12 @@ document.getElementById('sort-filter').addEventListener('change', function() {
     searchMovies();
 });
 
+// Event listener for the search button
+document.getElementById('search-btn').addEventListener('click', function() {
+    showLoadingSpinner();
+    searchMovies();
+});
+
 // Function to populate the Year filter dropdown
 function populateYearFilter() {
     const yearFilter = document.getElementById('year-filter');

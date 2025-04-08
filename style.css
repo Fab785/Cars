@@ -191,6 +191,23 @@ nav {
     fill: black; 
 }
 
+.search-btn {
+    padding: 12px 16px;
+    font-size: 16px;
+    background-color: #6415ff;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: #4509bb;
+}
+
+
 /* Optional: Style the placeholder */
 .header__src--input::placeholder {
     color: #999;
