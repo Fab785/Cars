@@ -41,11 +41,22 @@
     <section id="search">
         <div class="container">
             <h2>Search results:</h2>
+            <div class="filters">
+                <label for="year-filter">Filter by Year:</label>
+                <select id="year-filter">
+                    <option value="">All Years</option>
+                </select>
+            
+                <label for="sort-filter">Sort Alphabetically:</label>
+                <select id="sort-filter">
+                    <option value="asc">A-Z</option>
+                    <option value="desc">Z-A</option>
+                </select>
+            </div>
             <div id="results"></div>
             <div id="results">
                 <div id="loading-spinner" class="spinner" style="display: none;"></div> <!-- Loading Spinner -->
             </div>
-            
             <div id="search-results"></div>
         </div>
     </section>

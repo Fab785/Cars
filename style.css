@@ -12,7 +12,7 @@ body {
     max-width: 100vw;
     overflow: hidden;
     background-color: #f4f4f4;
-    background-image: url('./assets/carpark.8742e246.jpeg');
+    background-image: url('./assets/into-film-plus-catalogue-image-07-22.jpg');
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 
@@ -307,4 +307,21 @@ section {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+
+/* FILTERS */
+
+.filters {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.filters select {
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 4px;
 }
