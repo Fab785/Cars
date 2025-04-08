@@ -1,4 +1,4 @@
-// This is the data you want to simulate as your API response.
+
 const searchResults = [
     {
         "Title": "The Fast and the Furious",
@@ -44,16 +44,16 @@ const searchResults = [
     }
 ];
 
-// Event listener for the Enter key
+
 document.querySelector('.header__src--input').addEventListener('keypress', function(event) {
     if (event.key === "Enter") {
-        event.preventDefault();  // Prevent form submission
+        event.preventDefault(); 
         showLoadingSpinner();
         searchMovies();
     }
 });
 
-// Event listener for filters (Year and Alphabetical Order)
+
 document.getElementById('year-filter').addEventListener('change', function() {
     showLoadingSpinner();
     searchMovies();
@@ -63,17 +63,17 @@ document.getElementById('sort-filter').addEventListener('change', function() {
     searchMovies();
 });
 
-// Event listener for the search button
+
 document.getElementById('search-btn').addEventListener('click', function() {
     showLoadingSpinner();
     searchMovies();
 });
 
-// Function to populate the Year filter dropdown
+
 function populateYearFilter() {
     const yearFilter = document.getElementById('year-filter');
-    const years = Array.from(new Set(searchResults.map(movie => movie.Year))); // Get unique years
-    years.sort(); // Sort years
+    const years = Array.from(new Set(searchResults.map(movie => movie.Year))); 
+    years.sort(); 
     years.forEach(year => {
         const option = document.createElement('option');
         option.value = year;
@@ -82,40 +82,39 @@ function populateYearFilter() {
     });
 }
 
-// Function to display the loading spinner
+
 function showLoadingSpinner() {
-    document.getElementById('loading-spinner').style.display = 'block'; // Show spinner
+    document.getElementById('loading-spinner').style.display = 'block'; 
 }
 
-// Function to hide the loading spinner
+
 function hideLoadingSpinner() {
-    document.getElementById('loading-spinner').style.display = 'none'; // Hide spinner
+    document.getElementById('loading-spinner').style.display = 'none'; 
 }
 
-// Function to display the results based on the search term, year, and sort filters
 function searchMovies() {
     const query = document.querySelector('.header__src--input').value.toLowerCase();
     const yearFilterValue = document.getElementById('year-filter').value;
     const sortFilterValue = document.getElementById('sort-filter').value;
     const resultsContainer = document.getElementById('results');
-    resultsContainer.innerHTML = '';  // Clear previous results
+    resultsContainer.innerHTML = '';  
 
-    // Filter movies based on the query
+    
     const filteredResults = searchResults.filter(movie => 
         movie.Title.toLowerCase().includes(query) &&
         (yearFilterValue ? movie.Year === yearFilterValue : true)
     );
 
-    // Sort movies based on alphabetical order (A-Z or Z-A)
+    
     if (sortFilterValue === "asc") {
         filteredResults.sort((a, b) => a.Title.localeCompare(b.Title));
     } else if (sortFilterValue === "desc") {
         filteredResults.sort((a, b) => b.Title.localeCompare(a.Title));
     }
 
-    // Wait for a short moment to simulate the processing time
+    
     setTimeout(() => {
-        hideLoadingSpinner(); // Hide spinner once results are processed
+        hideLoadingSpinner(); 
         
         if (filteredResults.length > 0) {
             filteredResults.forEach(movie => {
@@ -131,9 +130,9 @@ function searchMovies() {
         } else {
             resultsContainer.innerHTML = `<p>No results found for "${query}".</p>`;
         }
-    }, 1000); // Simulating a 1-second delay
+    }, 1000); 
 }
 
-// Populate the Year filter when the page loads
+
 populateYearFilter();
 
